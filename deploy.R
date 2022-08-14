@@ -3,7 +3,7 @@ source("R/create-model.R")
 
 # Load a development version of vetiver.
 # Alternatively, replace this with `library(vetiver)`
-devtools::load_all("~/git/vetiver-r/")
+devtools::load_all("../vetiver-r/")
 
 # Wrap the model with vetiver and test a prediction
 simpsons_vetiver <- vetiver_model(simpsons_workflow, "simpsons")
