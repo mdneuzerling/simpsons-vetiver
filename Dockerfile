@@ -14,14 +14,16 @@ RUN yum update -y && yum install -y \
   libcurl-devel \
   libicu-devel \
   libsodium-devel \
+  libxml2-devel \
   make \
-  openssl-devel && \
+  openssl-devel \
+  pandoc && \
   yum clean all
 
-COPY vetiver_renv.lock renv.lock
 RUN Rscript -e "install.packages('renv')"
+COPY vetiver_renv.lock renv.lock
 RUN Rscript -e "renv::restore()"
 COPY runtime.R /opt/ml/runtime.R
 RUN printf '#!/bin/sh\nRscript /opt/ml/runtime.R' > /var/runtime/bootstrap \
         && chmod +x /var/runtime/bootstrap
-CMD ["predict"]
+CMD ["vetiver_predict"]

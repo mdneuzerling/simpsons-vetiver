@@ -1,5 +1,6 @@
-library(tidyverse)
-library(tidymodels)
+library(parsnip)
+library(recipes)
+library(workflows)
 
 # We only do this to the training data, so we don't need a recipe here
 simpsons <- readr::read_csv(

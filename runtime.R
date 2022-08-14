@@ -9,10 +9,10 @@ library(vetiver)
 Sys.setenv(R_USER_CACHE_DIR = tempfile())
 Sys.setenv(R_USER_DATA_DIR = tempfile())
 
-b <- board_s3(bucket = "mdneuzerling")
-v <- vetiver_pin_read(b, "simpsons", version = "20220813T015207Z-b6960")
+b <- board_s3(bucket = "CENSORED")
+v <- vetiver_pin_read(b, "simpsons", version = "20220813T224517Z-b6960")
 
-predict <- function(...) {
+vetiver_predict <- function(...) {
     predict(v, as.data.frame(...))
 }
 start_lambda()
